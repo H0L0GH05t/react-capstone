@@ -2,9 +2,11 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      Placeholder
-    </div>
+    <main>
+      <Header></Header>
+      <Nav></Nav>
+      <Footer></Footer>
+    </main>
   );
 }
 
