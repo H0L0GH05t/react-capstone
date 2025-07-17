@@ -1,13 +1,140 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Markazi+Text:wght@400;500&display=swap');
+
+/* CSS Variables for Colors and Fonts (Replace with your Figma colors) */
+:root {
+  /* Colors */
+  --primary-yellow: #F4CE14; /* Example: Bright Yellow */
+  --primary-green: #495E57;  /* Example: Dark Green */
+  --secondary-salmon: #EE9972; /* Example: Light Orange/Salmon */
+  --secondary-peach: #FBDABB;  /* Example: Peach */
+  --highlight-light: #EDEFEE; /* Example: Light Gray/Off-white */
+  --highlight-dark: #333333; /* Example: Dark Gray/Black for text */
+
+  /* Fonts */
+  --font-display: 'Markazi Text', serif; /* For headings and display text */
+  --font-body: 'Karla', sans-serif; /* For body text */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Basic Resets */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--highlight-dark); /* Default text color */
+  line-height: 1.6;
+  background-color: var(--highlight-light); /* Light background */
+}
+
+/* Basic typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--primary-green); /* Example heading color */
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-green);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Layout Helpers */
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: 0.8em 1.5em;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary-yellow);
+  color: var(--highlight-dark);
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #e0b400;
+}
+
+.btn-secondary {
+  background-color: var(--primary-green);
+  color: var(--highlight-light);
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: #3e514a;
+}
+
+/* Add styles for images if they have specific behavior */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Removes extra space below image */
+}
+
+/* Header and Navigation Placeholder Styles */
+header {
+  background-color: var(--highlight-light);
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd; /* Light separator */
+  display: flex;
+  justify-content: space-between; /* Space out logo and nav */
+  align-items: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  color: var(--primary-green);
+}
+
+nav ul {
+  display: flex; /* Make nav items horizontal */
+  gap: 20px; /* Space between nav items */
+}
+
+nav a {
+  color: var(--highlight-dark);
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: var(--primary-yellow);
+}
+
+footer {
+  background-color: var(--primary-green);
+  color: var(--highlight-light);
+  padding: 2rem 0;
+  text-align: center;
 }
