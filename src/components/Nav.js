@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom';
 
-const Nav = () => {
+const Nav = ({ isNavOpen, toggleNav }) => {
   return (
-    <nav>
+    <nav  className={`site-nav ${isNavOpen ? 'nav-open' : ''}`}>
       <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/booking">Reservations</Link></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Menu</a></li>
-        <li><a href="#">Order Online</a></li>
-        <li><a href="#">Login</a></li>
+        <li><Link to="/" onClick={toggleNav}>Home</Link></li>
+        <li><Link to="/booking" onClick={toggleNav}>Reservations</Link></li>
+        <li><Link to="/about" onClick={toggleNav}>About</Link></li>
+        <li><a href="#" onClick={toggleNav}>Menu</a></li>
+        <li><a href="#" onClick={toggleNav}>Order Online</a></li>
       </ul>
     </nav>
   );

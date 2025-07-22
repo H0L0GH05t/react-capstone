@@ -4,16 +4,16 @@
 /* CSS Variables for Colors and Fonts (Replace with your Figma colors) */
 :root {
   /* Colors */
-  --primary-yellow: #F4CE14; /* Example: Bright Yellow */
-  --primary-green: #495E57;  /* Example: Dark Green */
-  --secondary-salmon: #EE9972; /* Example: Light Orange/Salmon */
-  --secondary-peach: #FBDABB;  /* Example: Peach */
-  --highlight-light: #EDEFEE; /* Example: Light Gray/Off-white */
-  --highlight-dark: #333333; /* Example: Dark Gray/Black for text */
+  --primary-yellow: #F4CE14;
+  --primary-green: #495E57;
+  --secondary-salmon: #EE9972;
+  --secondary-peach: #FBDABB;
+  --highlight-light: #EDEFEE;
+  --highlight-dark: #333333;
 
   /* Fonts */
-  --font-display: 'Markazi Text', serif; /* For headings and display text */
-  --font-body: 'Karla', sans-serif; /* For body text */
+  --font-display: 'Markazi Text', serif;
+  --font-body: 'Karla', sans-serif;
 }
 
 /* Basic Resets */
@@ -27,15 +27,14 @@
 
 body {
   font-family: var(--font-body);
-  color: var(--highlight-dark); /* Default text color */
+  color: var(--highlight-dark);
   line-height: 1.6;
-  background-color: var(--highlight-light); /* Light background */
+  background-color: var(--highlight-light);
 }
 
-/* Basic typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  color: var(--primary-green); /* Example heading color */
+  color: var(--primary-green);
   margin-bottom: 0.5em;
 }
 
@@ -61,6 +60,14 @@ ul {
   max-width: 1024px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+div.about-text {
+  padding-top: 20px;
+}
+
+.about-hero {
+  padding-left: 1em;
 }
 
 /* Button Styles */
@@ -95,21 +102,141 @@ ul {
   background-color: #3e514a;
 }
 
-/* Add styles for images if they have specific behavior */
 img {
   max-width: 100%;
   height: auto;
-  display: block; /* Removes extra space below image */
+  display: block;
 }
 
-/* Header and Navigation Placeholder Styles */
+/* Header and Navigation */
 header {
   background-color: var(--highlight-light);
   padding: 1rem 0;
-  border-bottom: 1px solid #ddd; /* Light separator */
+  border-bottom: 1px solid #ddd;
   display: flex;
-  justify-content: space-between; /* Space out logo and nav */
+  justify-content: space-between;
   align-items: center;
+}
+
+.site-header {
+  background-color: var(--highlight-light);
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--highlight-light);
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.site-header > .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.site-logo {
+  height: 40px;
+  width: auto;
+}
+
+/* Hamburger Menu Button Styles */
+.hamburger-menu {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
+
+.hamburger-menu .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: var(--primary-green);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Navigation Styles */
+.site-nav ul {
+  display: flex;
+  gap: 20px;
+}
+
+/* Hide hamburger and show nav on larger screens */
+@media (min-width: 769px) {
+  .hamburger-menu {
+    display: none;
+  }
+
+  .site-nav {
+    display: block !important;
+    position: static;
+    background: none;
+    width: auto;
+    height: auto;
+    overflow: visible;
+  }
+
+  .site-nav ul {
+    flex-direction: row;
+  }
+}
+
+/* Media query for Mobile (screens up to 768px) */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: block;
+  }
+
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .site-nav.nav-open {
+    transform: translateX(0);
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .site-nav li a {
+    color: var(--highlight-light);
+    font-size: 2rem;
+  }
+
+  .site-nav li a:hover {
+    color: var(--primary-yellow);
+  }
+
+  /* Hamburger icon animation for open state */
+  .hamburger-menu.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-menu.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
 }
 
 header h1 {
@@ -119,8 +246,8 @@ header h1 {
 }
 
 nav ul {
-  display: flex; /* Make nav items horizontal */
-  gap: 20px; /* Space between nav items */
+  display: flex;
+  gap: 20px;
 }
 
 nav a {
@@ -137,4 +264,115 @@ footer {
   color: var(--highlight-light);
   padding: 2rem 0;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* TODO: needs fix, not quite working */
+}
+
+/* Hero Section Styles */
+.hero-section {
+  background-color: var(--primary-green);
+  color: var(--highlight-light);
+  padding: 4rem 0;
+  max-width: 100%;
+}
+
+.hero-section > .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.hero-content {
+  flex: 1;
+  min-width: 300px;
+  max-width: 50%;
+  text-align: left;
+}
+
+.hero-content h1 {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  color: var(--primary-yellow);
+  margin-bottom: -15px;
+  line-height: 1;
+}
+
+.hero-content h2 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--highlight-light);
+  margin-bottom: 1.5rem;
+}
+
+.about-title {
+  padding-left: 2em;
+}
+
+h2.about-title {
+  padding-left: 3.2em;
+}
+
+.hero-content p {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: var(--highlight-light);
+}
+
+.hero-image {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  text-align: right;
+}
+
+.hero-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.about-img {
+  padding-bottom: 20px;
+}
+
+/* Ensure buttons use our defined styles */
+.btn.btn-primary {
+    background-color: var(--primary-yellow);
+    color: var(--highlight-dark);
+}
+.btn.btn-primary:hover {
+    background-color: #e0b400;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .hero-section > .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content,
+  .hero-image {
+    max-width: 100%;
+    min-width: unset;
+  }
+
+  .hero-image {
+    order: -1;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .hero-content h2 {
+    font-size: 2rem;
+  }
 }
