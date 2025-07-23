@@ -6,14 +6,12 @@ const AboutPage = () => {
     <section className="about-section">
       <div className="container hero-section">
           <div className="hero-content about-hero">
-            <h1 className="about-title">Little Lemon</h1>
-            <h2 className="about-title">Chicago</h2>
+            <h1 className="about-title">About Us</h1>
           </div>
           <div className="hero-image"></div>
         </div>
         <div className="container about-content-wrapper">
           <div className="about-text">
-            <h1>About Us</h1>
             <p>
                 Little Lemon is a charming neighborhood bistro that serves simple food
                 and classic cocktails in a lively but casual environment. The restaurant

@@ -7,8 +7,7 @@ const Nav = ({ isNavOpen, toggleNav }) => {
         <li><Link to="/" onClick={toggleNav}>Home</Link></li>
         <li><Link to="/booking" onClick={toggleNav}>Reservations</Link></li>
         <li><Link to="/about" onClick={toggleNav}>About</Link></li>
-        <li><a href="#" onClick={toggleNav}>Menu</a></li>
-        <li><a href="#" onClick={toggleNav}>Order Online</a></li>
+        <li><a href="/menu" onClick={toggleNav}>Menu</a></li>
       </ul>
     </nav>
   );
