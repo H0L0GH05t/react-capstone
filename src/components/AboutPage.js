@@ -1,6 +1,4 @@
 
-import { Link } from 'react-router-dom';
-
 const AboutPage = () => {
   return (
     <section className="about-section">
