@@ -1,12 +1,10 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
-const BookingForm = () => {
-    const navigate = useNavigate();
+const BookingForm = ({ availableTimes, updateTimes, submitForm }) => {
 
     // State variables for form fields
     const [date, setDate] = useState('');
-    const [time, setTime] = useState('17:00');
+    const [time, setTime] = useState(availableTimes[0] || '17:00');
     const [guests, setGuests] = useState(1);
     const [occasion, setOccasion] = useState('');
     const [contactName, setContactName] = useState('');
@@ -14,11 +12,25 @@ const BookingForm = () => {
     const [contactValue, setContactValue] = useState('');
     const [specialRequests, setSpecialRequests] = useState('');
 
+    useEffect(() => {
+        if (availableTimes && availableTimes.length > 0) {
+            if (!availableTimes.includes(time)) {
+                setTime(availableTimes[0]);
+            }
+        } else {
+            setTime('No times available');
+        }
+    }, [availableTimes, time]);
+
+    const handleDateChange = (e) => {
+        const newDate = e.target.value;
+        setDate(newDate);
+        updateTimes(newDate);
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        alert('Reservation submitted!');
-        // TODO: connect to given API endpoint
         const bookingDetails = {
             date,
             time,
@@ -29,16 +41,12 @@ const BookingForm = () => {
             contactValue,
             specialRequests,
         };
-
     console.log("Submitting booking:", bookingDetails); // For debugging
-    // Simulate API call success
-    setTimeout(() => { // Simulate network delay
-      navigate('/confirmation', { state: { bookingDetails } });
-    }, 500); // Wait 0.5 seconds before navigating
+    submitForm(bookingDetails);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="booking-form">
+    <form onSubmit={handleSubmit} className="booking-form" data-testid="booking-form">
 
       <label htmlFor="contact-name">Contact Name</label>
       <input
@@ -90,23 +98,27 @@ const BookingForm = () => {
         type="date"
         id="res-date"
         value={date}
-        onChange={(e) => setDate(e.target.value)}
+        onChange={handleDateChange}
         required
       />
 
       <label htmlFor="res-time">Choose time</label>
       <select
-        id="res-time"
-        value={time}
-        onChange={(e) => setTime(e.target.value)}
-        required
+          id="res-time"
+          value={time}
+          onChange={(e) => setTime(e.target.value)}
+          required
+          disabled={availableTimes.length === 0}
       >
-        <option value="17:00">17:00</option>
-        <option value="18:00">18:00</option>
-        <option value="19:00">19:00</option>
-        <option value="20:00">20:00</option>
-        <option value="21:00">21:00</option>
-        <option value="22:00">22:00</option>
+          {availableTimes.length > 0 ? (
+              availableTimes.map(availableTime => (
+                  <option key={availableTime} value={availableTime}>
+                      {availableTime}
+                  </option>
+              ))
+          ) : (
+              <option value="">No times available</option>
+          )}
       </select>
 
       <label htmlFor="guests">Number of guests</label>

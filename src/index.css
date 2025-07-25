@@ -720,7 +720,6 @@ h2.about-title {
   border: none;
   padding: 0;
   margin: 0;
-  margin-bottom: 10px;
 }
 
 .booking-form legend {
@@ -734,7 +733,6 @@ h2.about-title {
 .booking-form .radio-group {
   display: flex;
   gap: 20px;
-  margin-bottom: 10px;
 }
 
 .booking-form .radio-group input[type="radio"] {

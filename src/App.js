@@ -1,16 +1,8 @@
 import { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router} from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Main from './components/Main';
-
-import HomePage from './components/HomePage';
-import BookingPage from './components/BookingPage';
-import AboutPage from './components/AboutPage';
-import BookingConfirmation from './components/BookingConfirmation';
-import MenuPage from './components/MenuPage';
-import CartPage from './components/CartPage';
-import OrderConfirmationPage from './components/OrderConfirmationPage';
 
 function App() {
 
@@ -45,27 +37,13 @@ function App() {
   return (
     <Router>
       <Header cartItems={cartItems} />
-      <Main>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/booking" element={<BookingPage />} />
-          <Route path="/confirmation" element={<BookingConfirmation />} />
-          <Route path="/menu" element={<MenuPage addToCart={addToCart} cartItems={cartItems} />} />
-          <Route
-            path="/cart"
-            element={
-                <CartPage
-                  cartItems={cartItems}
-                  updateCartItemQuantity={updateCartItemQuantity}
-                  removeCartItem={removeCartItem}
-                  setCartItems={setCartItems} // Pass setCartItems for discount reset or full clear
-                />
-              }
-          />
-          <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
-          <Route path="/about" element={<AboutPage />} />
-        </Routes>
-      </Main>
+      <Main
+        cartItems={cartItems}
+        addToCart={addToCart}
+        updateCartItemQuantity={updateCartItemQuantity}
+        removeCartItem={removeCartItem}
+        setCartItems={setCartItems}
+      />
       <Footer />
     </Router>
   );

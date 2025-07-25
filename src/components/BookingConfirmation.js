@@ -25,7 +25,6 @@ const BookingConfirmation = () => {
 
         <div className="confirmation-actions">
           <Link to="/" className="btn btn-secondary">Back to Home</Link>
-          {/* TODO: Add link to view/manage booking in future */}
         </div>
       </div>
     </section>
