@@ -1,3 +1,33 @@
+# The Little Lemon Restaurant App
+
+This React app is a basic version of a restaurant app made for the fictional restaurant Little Lemon. While my course required a booking form feature, 
+I also endevoured to include basic pages for an About page, a Menu for ordering online, and a very basic cart.
+
+## Includes units tests:
+
+### HomePage.test.js
+
+Test Case 1: Simple test to verify the "Reserver a Table" button renders
+
+### BookingPage.test.js
+
+Test Case 1: Renders the BookingForm component and ensures the "Make Your Reservation" button appears
+Test Case 2: Checks that updateTimes is called on first render to initialize the available times
+
+### BookingForm.test.js
+
+Test Case 1: Checks that all required form fields and the submit button render
+Test Case 2: Checks starting state of form fields
+Test Case 3: Checks user can input into text fields correctly
+Test Case 4: Checks user can select number of guests correctly
+Test Case 5: Checks that updateTimes is called on date change
+Test Case 6: Checks that time slot updates when availableTimes changes
+Test Case 7: Verifyies contact preference toggles correctly
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -28,38 +58,6 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
 ### Deployment
 
