@@ -1,7 +1,7 @@
 # The Little Lemon Restaurant App
 
 This React app is a basic version of a restaurant app made for the fictional restaurant Little Lemon. While my course required a booking form feature, 
-I also endevoured to include basic pages for an About page, a Menu for ordering online, and a very basic cart.
+I also endeavoured to include basic pages for an About page, a Menu for ordering online, and a very basic cart.
 
 See it live: https://react-capstone-three.vercel.app/
 
